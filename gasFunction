@@ -1,0 +1,14 @@
+function CopyTemplateSheet(){
+
+// フォルダを作成
+var newFolder = DriveApp.getFolderById(親フォルダのID).createFolder(フォルダ名);
+
+// テンプレをコピー
+var template = DriveApp.getFileById(テンプレシートのID); 
+var newSheet = template.makeCopy(ファイル名,newFolder);   
+var url      = newSheet.getUrl(); // ← GoogleスプレッドシートのURLをメール本文に入れるなどしてください。
+
+//メールでメンバーに送信
+MailApp.sendEmail(送信先メールアドレス,メールタイトル,メール本文); 
+
+}
